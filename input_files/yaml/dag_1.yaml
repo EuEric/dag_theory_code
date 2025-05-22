@@ -1,0 +1,152 @@
+dags:
+  - edges:
+      - from: 0
+        to: 1
+      - from: 0
+        to: 2
+      - from: 0
+        to: 3
+      - from: 1
+        to: 26
+      - from: 2
+        to: 4
+      - from: 2
+        to: 5
+      - from: 2
+        to: 6
+      - from: 3
+        to: 19
+      - from: 3
+        to: 20
+      - from: 3
+        to: 21
+      - from: 4
+        to: 7
+      - from: 4
+        to: 8
+      - from: 4
+        to: 9
+      - from: 5
+        to: 11
+      - from: 5
+        to: 12
+      - from: 5
+        to: 13
+      - from: 6
+        to: 15
+      - from: 6
+        to: 16
+      - from: 7
+        to: 10
+      - from: 8
+        to: 10
+      - from: 9
+        to: 10
+      - from: 10
+        to: 18
+      - from: 11
+        to: 14
+      - from: 12
+        to: 14
+      - from: 13
+        to: 14
+      - from: 14
+        to: 18
+      - from: 15
+        to: 17
+      - from: 16
+        to: 17
+      - from: 17
+        to: 18
+      - from: 18
+        to: 26
+      - from: 19
+        to: 25
+      - from: 20
+        to: 25
+      - from: 21
+        to: 22
+      - from: 21
+        to: 23
+      - from: 22
+        to: 24
+      - from: 23
+        to: 24
+      - from: 24
+        to: 25
+      - from: 25
+        to: 26
+      - from: 26
+        to: 27
+    indirect_edges:
+      - from: 0
+        to: 26
+      - from: 2
+        to: 18
+      - from: 3
+        to: 25
+      - from: 4
+        to: 10
+      - from: 5
+        to: 14
+      - from: 6
+        to: 17
+      - from: 21
+        to: 24
+    vertices:
+      - c: 0
+        id: 0
+      - c: 2
+        id: 1
+      - c: 2
+        id: 2
+      - c: 6
+        id: 3
+      - c: 8
+        id: 4
+      - c: 9
+        id: 5
+      - c: 2
+        id: 6
+      - c: 6
+        id: 7
+      - c: 7
+        id: 8
+      - c: 6
+        id: 9
+      - c: 10
+        id: 10
+      - c: 4
+        id: 11
+      - c: 9
+        id: 12
+      - c: 8
+        id: 13
+      - c: 8
+        id: 14
+      - c: 9
+        id: 15
+      - c: 5
+        id: 16
+      - c: 1
+        id: 17
+      - c: 9
+        id: 18
+      - c: 1
+        id: 19
+      - c: 2
+        id: 20
+      - c: 7
+        id: 21
+      - c: 1
+        id: 22
+      - c: 10
+        id: 23
+      - c: 8
+        id: 24
+      - c: 6
+        id: 25
+      - c: 4
+        id: 26
+      - c: 0
+        id: 27
