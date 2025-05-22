@@ -1,4 +1,5 @@
 #include "assign_priority.h"
+#include "topological_sort.h"
 #include <queue>
 #include <algorithm>
 #include <unordered_set>
@@ -146,28 +147,30 @@ void assign_priority(
 }
 
 
-void dfs_propagate(int node,
-                  const vector<vector<int>>& indirect_adj,
-                  vector<int>& priority,
-                  unordered_set<int>& visited) {
+void dfs_propagate(Graph G,
+                int node,
+                vector<int>& priority,
+                unordered_set<int>& visited) {
     visited.insert(node);
 
-    for (int neighbor : indirect_adj[node]) {
+    for (int neighbor : G.indirect_adj[node]) {
         priority[neighbor] = priority[node];
         cout << "Propagated priority " << priority[node]
                 << " from node " << node << " to node " << neighbor << "\n";
-        dfs_propagate(neighbor, indirect_adj, priority, visited);
+        dfs_propagate(G, neighbor, priority, visited);
     }
 }
 
-void assign_indirect_priority(const vector<vector<int>>& indirect_adj,
+void assign_indirect_priority(Graph G,
                             vector<int>& priority) {
-    int n = indirect_adj.size();
+
+    vector<int> topo_order = topological_sort(G.adj);                           
+    int n = topo_order.size();
     unordered_set<int> visited;
 
     for (int i = 0; i < n; ++i) {
         if (priority[i] != -1 && visited.count(i) == 0) {
-           dfs_propagate(i, indirect_adj, priority, visited);
+           dfs_propagate(G, i, priority, visited);
         }
     }
 }

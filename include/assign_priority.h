@@ -15,14 +15,11 @@ void assign_priority(
 
 // Propagates indirect priorities using DFS
 void dfs_propagate(
+    Graph G,                                   // DAG
     int source,                                // Vertex from which we start assigning priorities for indirect edges
-    unordered_set<int>& visited,               // Visited set
-    const vector<vector<int>>& indirect_adj,   // Indirect edge adjancency representation
-    vector<int>& priority                      // Priority array
+    vector<int>& priority,                     // Priority array
+    unordered_set<int>& visited                // Visited set
 );
 
 // Assigns (propagates) priorities for 'indirect' edges to all connected components
-void assign_indirect_priority(
-    const vector<vector<int>>& indirect_adj,   // Indirect edge adjancency representation
-    vector<int>& priority                      // Priority array
-);
+void assign_indirect_priority(Graph G, vector<int>& priority);

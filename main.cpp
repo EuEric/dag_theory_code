@@ -176,7 +176,7 @@ int main(int argc, char* argv[]) {
         cout << "RT bound BEFORE COMPUTING NEW PRIORITIES: " << final_rt << "\n";
 
         // Assign 'correct' priorities to fork-join nodes
-        assign_indirect_priority(dags[i].indirect_adj, priority);
+        assign_indirect_priority(dags[i], priority);
 
         // Step 4: Display priorities
         cout << "Assigned priorities:\n";
