@@ -14,7 +14,6 @@
 #include <random>
 #include <fstream>
 #include <unordered_map>
-#include "generator_params.h"
 
 enum DOTLine_t {DOT_BEGIN, DOT_END, DOT_NODE, DOT_EDGE, DOT_INDIRECT_EDGE, DAG_INFO, VOID_LINE};
 
