@@ -6,6 +6,7 @@
 #include "graph.h"
 #include "rt_analysis.h"
 #include "dag_parser.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -14,14 +15,9 @@ int main(int argc, char* argv[]) {
     DAGParser dagParser;
     vector<Graph> dags;
     std::string filename;
-    //bool random_creation = false;
-    //int nr_dags;
     
     // Default configuration
     nr_proc = 2;
-    //std::vector<int> typed_proc = {2, 2};
-    //float U_tot = 1.0;
-    //nr_dags = 1;
 
     // Argument parser
     for (int i = 1; i < argc; ++i) {
@@ -29,25 +25,9 @@ int main(int argc, char* argv[]) {
 
         if ((arg == "-f" || arg == "--file") && i + 1 < argc) {
             filename = argv[++i];
-           // random_creation = false;
         }
-        //  else if (arg == "-g" || arg == "--generate") {
-        //     random_creation = true;
-        // } else if ((arg == "-n" || arg == "--num") && i + 1 < argc) {
-        //     nr_dags = std::stoi(argv[++i]);
-        // }
     }
 
-    // if (random_creation) {
-    //     std::cout << "Generating " << nr_dags << " DAG(s) randomly.\n";
-
-    //     if (REPRODUCIBLE) srand(1);
-    //     else srand(time(NULL));
-
-    //     GeneratorParams gp;
-    //     gp.configureParams(GenerationType_t::VARYING_N);
-    //     //dagParser.generate_DAGS_Melani(nr_dags, U_tot, typed_proc.size(), gp);
-    // } else 
     if (!filename.empty()){
         cout << "Reading DAG(s) from file: " << filename << "\n";
 
@@ -178,11 +158,12 @@ int main(int argc, char* argv[]) {
         // Assign 'correct' priorities to fork-join nodes
         assign_indirect_priority(dags[i], priority);
 
-        // Step 4: Display priorities
         cout << "Assigned priorities:\n";
         for (int j = 0; j < n; ++j) {
             cout << "Task " << j << ": priority = " << priority[j] << "\n";
         }
+
+        dump_priorities_to_yaml("priorities_" + extract_filename(filename), priority);
 
         final_rt = compute_rt_bound(dags[i], priority, nr_proc);
         cout << "RT bound AFTER COMPUTING NEW PRIORITIES: " << final_rt << "\n";
