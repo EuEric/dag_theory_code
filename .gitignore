@@ -1,3 +1,4 @@
 obj/*
 bin/*
 .vscode
+output_files/
