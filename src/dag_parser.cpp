@@ -211,7 +211,7 @@ void DAGParser::readDAGFromDOT(const std::string &filename, Graph& g) {
 
 void DAGParser::readMultipleDAGSFromYAML(const std::string& file_path, vector<Graph>& graphs) {
     YAML::Node config   = YAML::LoadFile(file_path);
-    YAML::Node dags_node = config["dags"];
+    YAML::Node dags_node = config["tasks"];
 
     for(int i=0; i<dags_node.size(); i++) {
         Graph g;
