@@ -1,4 +1,4 @@
-dags:
+tasks:
   - edges:
       - from: 0
         to: 1
