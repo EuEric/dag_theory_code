@@ -25,9 +25,10 @@ int main(int argc, char* argv[]) {
 
         if ((arg == "-f" || arg == "--file") && i + 1 < argc) {
             filename = argv[++i];
+        } else if ((arg == "--proc") && i + 1 < argc) {
+            nr_proc = std::stoi(argv[++i]);
         }
-    }
-
+}
     if (!filename.empty()){
         cout << "Reading DAG(s) from file: " << filename << "\n";
 
