@@ -1,6 +1,6 @@
 # Compiler settings
 CXX = g++
-CXXFLAGS = -std=c++11 -Iinclude
+CXXFLAGS = -std=c++17 -Iinclude
 LDLIBS = -lyaml-cpp
 
 # Files and directories
