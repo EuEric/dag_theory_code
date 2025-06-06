@@ -94,10 +94,10 @@ dot_info parseDOTLine(const std::string& line) {
 
 void DAGParser::readDAGFromYAML(YAML::Node dag_node, Graph& g) {
     // Read period and deadline of a vertex
-    int t = dag_node["t"] ? dag_node["t"].as<int>() : 0;
-    int d = dag_node["d"] ? dag_node["d"].as<int>() : 0;
-    g.setDeadline(d);
-    g.setPeriod(t);
+    // int t = dag_node["t"] ? dag_node["t"].as<int>() : 0;
+    // int d = dag_node["d"] ? dag_node["d"].as<int>() : 0;
+    // g.setDeadline(d);
+    // g.setPeriod(t);
 
     YAML::Node vert = dag_node["vertices"];
     int num_vertices = vert.size();
