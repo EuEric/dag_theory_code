@@ -6,7 +6,6 @@
 
 void assign_priority(
     Graph G,                          // Copy of graph
-    //const std::vector<Task>& tasks,   // Task metadata
     const std::vector<int>& l,        // Computed l(v)
     const std::vector<int>& lb,       // Computed lb(v)
     std::vector<int>& priority,       // Output priorities

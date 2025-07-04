@@ -7,7 +7,6 @@ using namespace std;
 
 // Compute l(v), lf(v), lb(v) for each task
 void compute_length(
-    // const vector<Task>& tasks,
     const Graph& graph,
     vector<int>& lf,
     vector<int>& lb,
