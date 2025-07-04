@@ -16,6 +16,7 @@ int compute_volume(const unordered_set<int>& vertices, const vector<Task>& tasks
     return volume;
 }
 
+// Compute the total length of a path in terms of WCET
 int compute_length_path(const vector<int>& path, const vector<Task>& tasks) {
     int length = 0;
     for(int v : path) {
@@ -60,6 +61,7 @@ unordered_set<int> compute_interference_set(
     return result;
 }
 
+// Compute the response-time bound
 float compute_rt_bound(
     const Graph& G,
     const vector<int>& priority,

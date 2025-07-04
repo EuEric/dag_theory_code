@@ -178,7 +178,7 @@ void Graph::print_graph(const string& title) const {
     }
 }
 
-
+// Create an induced subgraph based on a set of nodes
 Graph Graph::induced_subgraph(const std::unordered_set<int>& nodes) const {
     Graph subgraph;
 
@@ -220,13 +220,13 @@ Graph Graph::induced_subgraph(const std::unordered_set<int>& nodes) const {
     return subgraph;
 }
 
+// Used to resize vectors of the graph, if needed.
 void Graph::resize(int num_vertices, bool is_present) {
     adj.resize(num_vertices);
     reverse_adj.resize(num_vertices);
     indirect_adj.resize(num_vertices);
     is_node_present.resize(num_vertices, is_present);  // All nodes present initially
 }
-
 
 void Graph::setPeriod(int period) {
     _period = period;
