@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// Function to parse separators for DOT format files
 std::vector<std::pair<std::string, std::string>> separateOnComma(const std::string& line){
     std::string left = "", rigth = "";
     bool read_equal = false;
@@ -35,6 +36,7 @@ std::vector<std::pair<std::string, std::string>> separateOnComma(const std::stri
     return pairs;
 }
 
+// Parse a single line in a DOT format
 dot_info parseDOTLine(const std::string& line) {
     dot_info line_info;
 
@@ -93,11 +95,16 @@ dot_info parseDOTLine(const std::string& line) {
 }
 
 void DAGParser::readDAGFromYAML(YAML::Node dag_node, Graph& g) {
-    // Read period and deadline of a vertex
-    // int t = dag_node["t"] ? dag_node["t"].as<int>() : 0;
-    // int d = dag_node["d"] ? dag_node["d"].as<int>() : 0;
-    // g.setDeadline(d);
-    // g.setPeriod(t);
+
+    /**
+     * Read period and deadline of a DAG.
+     * Important: comment out these period and deadline lines if yaml input doesn't contain them.
+     * Otherwise, it will result in an error.
+     */
+    int t = dag_node["t"] ? dag_node["t"].as<int>() : 0;
+    int d = dag_node["d"] ? dag_node["d"].as<int>() : 0;
+    g.setDeadline(d);
+    g.setPeriod(t);
 
     YAML::Node vert = dag_node["vertices"];
     int num_vertices = vert.size();
